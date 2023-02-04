@@ -11,6 +11,7 @@ def load_txt() -> str:
 def main(page: ft.Page):
     page.title = "Flet counter example"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.theme_mode = "dark"
 
     txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
 
