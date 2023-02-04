@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "TXT Reader"
+version = "0.1.0"
+description = ""
+authors = ["Sungdon Kim <sehandev@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+typer = "^0.7.0"
+flet = "^0.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
