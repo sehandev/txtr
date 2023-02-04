@@ -2,11 +2,19 @@ import flet as ft
 import typer
 
 
+def load_txt() -> str:
+    with open("./static/sample.txt", "r", encoding="utf8") as txt_file:
+        txt_content = txt_file.read()
+    return txt_content
+
+
 def main(page: ft.Page):
     page.title = "Flet counter example"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
     txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
+
+    txt_content = load_txt()
 
     def minus_click(e):
         txt_number.value = str(int(txt_number.value) - 1)
@@ -16,6 +24,9 @@ def main(page: ft.Page):
         txt_number.value = str(int(txt_number.value) + 1)
         page.update()
 
+    def size_click(e):
+        print(page.width, page.height)
+
     page.add(
         ft.Row(
             [
@@ -24,7 +35,9 @@ def main(page: ft.Page):
                 ft.IconButton(ft.icons.ADD, on_click=plus_click),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
-        )
+        ),
+        ft.IconButton(ft.icons.CHECK, on_click=size_click),
+        ft.Text(value=txt_content),
     )
 
 
